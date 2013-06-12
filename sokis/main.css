@@ -1,0 +1,236 @@
+.purple a.selected,
+.buttonrow a.selected,
+nav a.selected,
+a.purple.selected,
+a.button.selected,
+a:hover.selected,
+.purple a.white.selected:hover,
+.white a.selected:hover,
+.purple .white a.selected:hover,
+a.white.selected:hover {
+    text-decoration: none;
+    background-color: #000;
+    color: white;
+}
+
+.button.selected,
+.buttonrow > .selected {
+    border-color: #000;
+}
+
+.purple a.selected:hover,
+.buttonrow a.selected:hover,
+nav a.selected:hover,
+a.purple.selected:hover,
+a.button.selected:hover,
+a.white.selected,
+.white a.selected,
+a.selected {
+    text-decoration: none;
+    color: #000;
+    background-color: white;
+}
+
+.purple a.new,
+.buttonrow a.new,
+nav a.new,
+a.purple.new,
+a.button.new,
+a:hover.new,
+.purple a.white.new:hover,
+.white a.new:hover,
+.purple .white a.new:hover,
+a.white.new:hover {
+    text-decoration: none;
+    background-color: #0b4;
+    color: white;
+}
+
+.button.new,
+.buttonrow > .new {
+    border-color: #0b4;
+}
+
+.purple a.new:hover,
+.buttonrow a.new:hover,
+nav a.new:hover,
+a.purple.new:hover,
+a.button.new:hover,
+a.white.new,
+.white a.new,
+a.new {
+    text-decoration: none;
+    color: #0b4;
+    background-color: white;
+}
+
+#searchform {
+    display: inline-block;
+}
+
+#editform textarea,
+input#wpSummary {
+    border: 0;
+    font-size: 12pt;
+}
+
+#editform textarea,
+input#wpSummary,
+tt,
+tt * {
+    font-family: Menlo, "DejaVu Sans Mono", "DejaVu", "Bitstream Vera Sans", monospace;
+}
+
+#editform textarea {
+    width: 100%;
+}
+
+#editform textarea:focus,
+input#wpSummary:focus {
+    outline: none;
+}
+
+div.editCheckboxes {
+    margin-top: 5px;
+}
+
+#toc * {
+    font-size: 14px;
+}
+
+#toctitle h2 {
+    float: left;
+    padding: 0;
+}
+
+.editsection {
+    font-weight: normal;
+}
+
+ul {
+    margin: 0;
+    padding: 10px 10px 10px 30px;
+}
+
+ul ul, ol ul {
+    list-style-type: disc;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.allpagesredirect {
+    font-style: italic;
+}
+
+.ubx {
+    border: 1px solid #000;
+    margin: 1px;
+    width: 240px;
+    max-width: 240px;
+    height: 45px;
+    box-sizing: border-box;
+}
+
+.ubx th {
+    min-width: 45px;
+    background: #000;
+    text-align: center;
+    font-size: 14pt;
+    color: #fff;
+    padding: 0 1px 0 0;
+    line-height: 1.25em;
+    vertical-align: middle;
+}
+
+.ubx td {
+    text-align: left;
+    font-size: 8pt;
+    padding: 0 4px 0 4px;
+    line-height: 1.25em;
+    color: #000;
+    vertical-align: middle;
+    background-color: #fff;
+}
+
+#mw-content-text {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#mw-content-text h1,
+#mw-content-text h2,
+#mw-content-text h3,
+#mw-content-text h4,
+#mw-content-text h5,
+#mw-content-text h6,
+#mw-content-text p {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.tright {
+	float: right;
+}
+
+.thumbinner {
+	border: 1px solid black;
+	background-color: white;
+}
+
+.thumbinner > * {
+	display: block;
+	margin: 1px;
+}
+
+.thumbinner > a.image:hover {
+	background-color: white;
+}
+
+.thumbinner .magnify {
+	display: none;
+}
+
+.printfooter {
+    display: none;
+}
+
+footer .catlinks {
+    display: inline;
+}
+
+footer .mw-normal-catlinks {
+    display: inline;
+}
+
+footer ul {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    z-index: 1000;
+    list-style-image: none;
+}
+
+footer ul li {
+    list-style-type: none;
+    display: inline;
+}
+
+footer .catlinks ul a {
+    color: #60f;
+    background-color: #fff;
+}
+
+footer .catlinks ul a:hover {
+    color: #fff;
+    background-color: #60f;
+}
+
+footer .catlinks ul a.new {
+    color: #0b4;
+    background-color: #fff;
+}
+
+footer .catlinks ul a.new:hover {
+    color: #fff;
+    background-color: #0b4;
+}
