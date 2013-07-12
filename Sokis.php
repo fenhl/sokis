@@ -85,7 +85,7 @@ class SokisTemplate extends BaseTemplate {
         <meta charset="utf-8" />
         <meta http-equiv="cache-control" content="no-cache" />
         <meta http-equiv="expires" content="0" />
-        <link rel="stylesheet" href="http://fenhl.net/fenhl.css" type="text/css" media="screen" charset="utf-8" />
+        <link rel="stylesheet" href="http://fenhl.net/lib/fenhl.css" type="text/css" media="screen" charset="utf-8" />
         <style type="text/css" media="screen,projection">/*<![CDATA[*/
             @import "<?php $this->text('stylepath') ?>/<?php $this->text('stylename') ?>/main.css?<?php echo $GLOBALS['wgStyleVersion'] ?>";
             @import "<?php $this->text('stylepath') ?>/<?php $this->text('stylename') ?>/contents.css?<?php echo $GLOBALS['wgStyleVersion'] ?>";
