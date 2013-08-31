@@ -257,7 +257,7 @@ class SokisTemplate extends BaseTemplate {
                     }
                 }
             ?>
-            <a href="http://w.fenhl.net/GefolgeWiki:Impressum">disclamier</a>
+            <a href="http://w.fenhl.net/GefolgeWiki:Impressum">disclaimer</a>
         </footer>
 
 <!-- scripts and debugging information -->
