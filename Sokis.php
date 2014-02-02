@@ -213,7 +213,7 @@ class SokisTemplate extends BaseTemplate {
             <?php
         } else {
             ?>
-                <h1 style="vertical-align: middle;"><a href="/" title="Fenhl"><img style="display: inline-block; vertical-align: middle; height: 55px; width: 55px;" src="<?php $this->text('logopath') ?>" /></a> / <?php $this->data['displaytitle']!=""?$this->html('title'):$this->text('title'); ?></h1>
+                <h1><a href="/" title="Fenhl"><img style="float: left; height: 55px; width: 55px;" src="<?php $this->text('logopath') ?>" /></a><span style="margin-left: 10px;"> / <?php $this->data['displaytitle']!=""?$this->html('title'):$this->text('title'); ?></span></h1>
             <?php
         }
     ?>
