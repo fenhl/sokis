@@ -85,6 +85,8 @@ class SokisTemplate extends BaseTemplate {
         <meta charset="utf-8" />
         <meta http-equiv="cache-control" content="no-cache" />
         <meta http-equiv="expires" content="0" />
+        <link rel="openid.server" href="http://static.fenhl.net/id/" />
+        <link rel="openid2.provider" href="http://static.fenhl.net/id/" />
         <link rel="stylesheet" href="http://static.fenhl.net/fenhl.css" type="text/css" media="screen" charset="utf-8" />
         <style type="text/css" media="screen,projection">/*<![CDATA[*/
             @import "<?php $this->text('stylepath') ?>/<?php $this->text('stylename') ?>/main.css?<?php echo $GLOBALS['wgStyleVersion'] ?>";
@@ -213,7 +215,7 @@ class SokisTemplate extends BaseTemplate {
             <?php
         } else {
             ?>
-                <h1><a href="/" title="Fenhl"><img style="float: left; height: 55px; width: 55px;" src="<?php $this->text('logopath') ?>" /></a><span style="margin-left: 10px;"> / <?php $this->data['displaytitle']!=""?$this->html('title'):$this->text('title'); ?></span></h1>
+                <h1><a href="/" title="Fenhl"><img style="float: left; height: 55px; width: 55px;" src="<?php $this->text('logopath') ?>" /></a><span style="margin-left: 10px;">/<?php $this->data['displaytitle']!=""?$this->html('title'):$this->text('title'); ?></span></h1>
             <?php
         }
     ?>
