@@ -206,11 +206,17 @@ class SokisTemplate extends BaseTemplate {
                 </div>
             <?php
         }
+        if ($this->data['title'] == 'User:Fenhl') {
+            ?>
+                <img class="ava" src="<?php $this->text('logopath') ?>" />
+                <h1>Fenhl</h1>
+            <?php
+        } else {
+            ?>
+                <h1><a href="/" title="Fenhl"><img style="height: 55px; width: 55px;" src="<?php $this->text('logopath') ?>" /></a> / <?php $this->data['displaytitle']!=""?$this->html('title'):$this->text('title'); ?></h1>
+            <?php
+        }
     ?>
-    <a href="<?php echo htmlspecialchars($this->data['nav_urls']['mainpage']['href'])?>"><img class="ava" src="<?php $this->text('logopath') ?>" /></a>
-    <h1><a href="http://fenhl.net/" title="main page">Fenhl</a><?php if ($this->data['title'] != 'User:Fenhl') {
-        echo(' — '); $this->data['displaytitle']!=""?$this->html('title'):$this->text('title');
-    } ?></h1>
     <?php if($this->data['sitenotice']) { ?><div class="siteNotice clear"><?php $this->html('sitenotice') ?></div><?php } ?>
     <?php if($this->data['newtalk']) { ?><div class="usermessage clear"><?php $this->html('newtalk') ?></div><?php } ?>
     <!-- language links /-->
@@ -231,30 +237,6 @@ class SokisTemplate extends BaseTemplate {
     <!-- main content /-->
     <?php $this->html('bodytext') ?>
     <!-- footer /-->
-    <div class="small clear" id="footer" style="min-height: 31px; position: relative;">
-        <div style="position: absolute; right: 2px; bottom: 2px;">
-        <?php
-            if($this->data['poweredbyico']) {
-                ?><span id="f-poweredbyico" style="margin-right: 2px;"><?php $this->html('poweredbyico') ?></span><?php
-            }
-            if($this->data['copyrightico']) {
-                ?><span id="f-copyrightico" style="margin-right: 2px;"><?php $this->html('copyrightico') ?></span><?php
-            }
-        ?>
-        </div>
-        <ul>
-        <?php
-            $footerlinks = array(
-            'lastmod', 'viewcount', 'numberofwatchingusers', 'credits', 'copyright',
-            );
-            foreach( $footerlinks as $aLink ) {
-            if( isset( $this->data[$aLink] ) && $this->data[$aLink] ) {
-                ?><li><?php $this->html($aLink); ?></li><?php
-            }
-            }
-        ?>
-        </ul>
-    </div>
     <div class="footergap">&nbsp;</div>
     <footer>
         <?php
@@ -262,6 +244,8 @@ class SokisTemplate extends BaseTemplate {
             $this->html('catlinks');
         }
         ?>
+        <a href="http://mediawiki.org/">powered by MediaWiki</a>
+        <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0 Fenhl</a>
         <a href="http://fenhl.net/disclaimer">disclaimer</a>
     </footer>
 
