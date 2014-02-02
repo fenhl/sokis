@@ -146,64 +146,64 @@ class SokisTemplate extends BaseTemplate {
                         }
                         ?>
                     </p>
-                </div>
-                <p>
-                        <?php
-                        if($this->data['notspecialpage']) { ?>
-                            <a href="<?php
-                                echo htmlspecialchars($this->data['nav_urls']['whatlinkshere']['href'])
-                                ?>"<?php echo $skin->tooltipAndAccesskeyAttribs('t-whatlinkshere') ?>><?php $this->msg('whatlinkshere') ?></a>
-                        <?php
-                            if( $this->data['nav_urls']['recentchangeslinked'] ) { ?>
-                            <a href="<?php
-                                echo htmlspecialchars($this->data['nav_urls']['recentchangeslinked']['href'])
-                                ?>"<?php echo $skin->tooltipAndAccesskeyAttribs('t-recentchangeslinked') ?>><?php $this->msg('recentchangeslinked') ?></a>
-                        <?php    }
-                        }
-                        if(isset($this->data['nav_urls']['trackbacklink'])) { ?>
-                            <a href="<?php
-                                echo htmlspecialchars($this->data['nav_urls']['trackbacklink']['href'])
-                                ?>"<?php echo $skin->tooltipAndAccesskeyAttribs('t-trackbacklink') ?>><?php $this->msg('trackbacklink') ?></a>
-                        <?php }
-                        if($this->data['feeds']) { ?>
-                            <?php foreach($this->data['feeds'] as $key => $feed) {
-                            ?><a href="<?php
-                                    echo htmlspecialchars($feed['href']) ?>"<?php echo $skin->tooltipAndAccesskeyAttribs('feed-'.$key) ?>><?php echo htmlspecialchars($feed['text'])?></a>&nbsp;</span>
-                                    <?php } ?><?php
-                        }
-                
-                        foreach( array('contributions', 'blockip', 'emailuser', 'upload', 'specialpages') as $special ) {
-                
-                            if($this->data['nav_urls'][$special]) {
-                                ?><a href="<?php echo htmlspecialchars($this->data['nav_urls'][$special]['href'])
-                                ?>"<?php echo $skin->tooltipAndAccesskeyAttribs('t-'.$special) ?>><?php $this->msg($special) ?></a>
-                <?php        }
-                        }
-                
-                        if(!empty($this->data['nav_urls']['print']['href'])) { ?>
-                                <a href="<?php echo htmlspecialchars($this->data['nav_urls']['print']['href'])
-                                ?>"<?php echo $skin->tooltipAndAccesskeyAttribs('t-print') ?>><?php $this->msg('printableversion') ?></a><?php
-                        }
-                
-                        if(!empty($this->data['nav_urls']['permalink']['href'])) { ?>
-                                <a href="<?php echo htmlspecialchars($this->data['nav_urls']['permalink']['href'])
-                                ?>"<?php echo $skin->tooltipAndAccesskeyAttribs('t-permalink') ?>><?php $this->msg('permalink') ?></a><?php
-                        } elseif ($this->data['nav_urls']['permalink']['href'] === '') { ?>
-                                <?php $this->msg('permalink');
-                        }
-                
-                        wfRunHooks( 'TrialSkinTemplateToolboxEnd', array( &$this ) );
-                ?>
-                    </p>
-                <!-- page toolbar /-->
-                <p class="clear">
-                    <?php
-                        foreach($this->data['content_actions'] as $key => $tab) {
-                            echo($this->makeLink($key, $tab, array('link-class' => 'button'))." ");
-                            
-                        }
+                    <p>
+                            <?php
+                            if($this->data['notspecialpage']) { ?>
+                                <a href="<?php
+                                    echo htmlspecialchars($this->data['nav_urls']['whatlinkshere']['href'])
+                                    ?>"<?php echo $skin->tooltipAndAccesskeyAttribs('t-whatlinkshere') ?>><?php $this->msg('whatlinkshere') ?></a>
+                            <?php
+                                if( $this->data['nav_urls']['recentchangeslinked'] ) { ?>
+                                <a href="<?php
+                                    echo htmlspecialchars($this->data['nav_urls']['recentchangeslinked']['href'])
+                                    ?>"<?php echo $skin->tooltipAndAccesskeyAttribs('t-recentchangeslinked') ?>><?php $this->msg('recentchangeslinked') ?></a>
+                            <?php    }
+                            }
+                            if(isset($this->data['nav_urls']['trackbacklink'])) { ?>
+                                <a href="<?php
+                                    echo htmlspecialchars($this->data['nav_urls']['trackbacklink']['href'])
+                                    ?>"<?php echo $skin->tooltipAndAccesskeyAttribs('t-trackbacklink') ?>><?php $this->msg('trackbacklink') ?></a>
+                            <?php }
+                            if($this->data['feeds']) { ?>
+                                <?php foreach($this->data['feeds'] as $key => $feed) {
+                                ?><a href="<?php
+                                        echo htmlspecialchars($feed['href']) ?>"<?php echo $skin->tooltipAndAccesskeyAttribs('feed-'.$key) ?>><?php echo htmlspecialchars($feed['text'])?></a>&nbsp;</span>
+                                        <?php } ?><?php
+                            }
+                    
+                            foreach( array('contributions', 'blockip', 'emailuser', 'upload', 'specialpages') as $special ) {
+                    
+                                if($this->data['nav_urls'][$special]) {
+                                    ?><a href="<?php echo htmlspecialchars($this->data['nav_urls'][$special]['href'])
+                                    ?>"<?php echo $skin->tooltipAndAccesskeyAttribs('t-'.$special) ?>><?php $this->msg($special) ?></a>
+                    <?php        }
+                            }
+                    
+                            if(!empty($this->data['nav_urls']['print']['href'])) { ?>
+                                    <a href="<?php echo htmlspecialchars($this->data['nav_urls']['print']['href'])
+                                    ?>"<?php echo $skin->tooltipAndAccesskeyAttribs('t-print') ?>><?php $this->msg('printableversion') ?></a><?php
+                            }
+                    
+                            if(!empty($this->data['nav_urls']['permalink']['href'])) { ?>
+                                    <a href="<?php echo htmlspecialchars($this->data['nav_urls']['permalink']['href'])
+                                    ?>"<?php echo $skin->tooltipAndAccesskeyAttribs('t-permalink') ?>><?php $this->msg('permalink') ?></a><?php
+                            } elseif ($this->data['nav_urls']['permalink']['href'] === '') { ?>
+                                    <?php $this->msg('permalink');
+                            }
+                    
+                            wfRunHooks( 'TrialSkinTemplateToolboxEnd', array( &$this ) );
                     ?>
-                </p>
+                        </p>
+                    <!-- page toolbar /-->
+                    <p class="clear">
+                        <?php
+                            foreach($this->data['content_actions'] as $key => $tab) {
+                                echo($this->makeLink($key, $tab, array('link-class' => 'button'))." ");
+                                
+                            }
+                        ?>
+                    </p>
+                </div>
             <?php
         }
     ?>
