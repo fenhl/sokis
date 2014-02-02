@@ -81,118 +81,136 @@ class SokisTemplate extends BaseTemplate {
 ?><!DOCTYPE html>
 <html>
     <head>
-    <title><?php $this->text('pagetitle') ?></title>
-    <meta charset="utf-8" />
-    <meta http-equiv="cache-control" content="no-cache" />
-    <meta http-equiv="expires" content="0" />
-    <link rel="stylesheet" href="http://static.fenhl.net/fenhl.css" type="text/css" media="screen" charset="utf-8" />
-    <style type="text/css" media="screen,projection">/*<![CDATA[*/
-        @import "<?php $this->text('stylepath') ?>/<?php $this->text('stylename') ?>/main.css?<?php echo $GLOBALS['wgStyleVersion'] ?>";
-        @import "<?php $this->text('stylepath') ?>/<?php $this->text('stylename') ?>/contents.css?<?php echo $GLOBALS['wgStyleVersion'] ?>";
-    /*]]>*/</style>
-    <link rel="stylesheet" type="text/css" <?php if(empty($this->data['printable']) ) { ?>media="print"<?php } ?> href="<?php $this->text('stylepath') ?>/common/commonPrint.css?<?php echo $GLOBALS['wgStyleVersion'] ?>" />
-    <link rel="stylesheet" type="text/css" media="handheld" href="<?php $this->text('stylepath') ?>/<?php $this->text('stylename') ?>/handheld.css?<?php echo $GLOBALS['wgStyleVersion'] ?>" />
-    <?php print Skin::makeGlobalVariablesScript($this->data); ?>
-    <script type="<?php $this->text('jsmimetype') ?>" src="<?php $this->text('stylepath') ?>/common/wikibits.js?<?php echo $GLOBALS['wgStyleVersion'] ?>"><!-- wikibits js --></script>
-<?php    if($this->data['jsvarurl']) { ?>
-        <script type="<?php $this->text('jsmimetype') ?>" src="<?php $this->text('jsvarurl') ?>"><!-- site js --></script>
-<?php    } ?>
-<?php    if($this->data['pagecss']) { ?>
-        <style type="text/css"><?php $this->html('pagecss') ?></style>
-<?php    }
-        if($this->data['usercss']) { ?>
-        <style type="text/css"><?php $this->html('usercss') ?></style>
-<?php    }
-        if($this->data['userjs']) { ?>
-        <script type="<?php $this->text('jsmimetype') ?>" src="<?php $this->text('userjs' ) ?>"></script>
-<?php    }
-        if($this->data['userjsprev']) { ?>
-        <script type="<?php $this->text('jsmimetype') ?>"><?php $this->html('userjsprev') ?></script>
-<?php    }
-        if($this->data['trackbackhtml']) print $this->data['trackbackhtml']; ?>
-        <!-- Head Scripts -->
-        <?php $this->html('headscripts') ?>
+        <title><?php $this->text('pagetitle') ?></title>
+        <meta charset="utf-8" />
+        <meta http-equiv="cache-control" content="no-cache" />
+        <meta http-equiv="expires" content="0" />
+        <link rel="stylesheet" href="http://static.fenhl.net/fenhl.css" type="text/css" media="screen" charset="utf-8" />
+        <style type="text/css" media="screen,projection">/*<![CDATA[*/
+            @import "<?php $this->text('stylepath') ?>/<?php $this->text('stylename') ?>/main.css?<?php echo $GLOBALS['wgStyleVersion'] ?>";
+            @import "<?php $this->text('stylepath') ?>/<?php $this->text('stylename') ?>/contents.css?<?php echo $GLOBALS['wgStyleVersion'] ?>";
+        /*]]>*/</style>
+        <link rel="stylesheet" type="text/css" <?php if(empty($this->data['printable']) ) { ?>media="print"<?php } ?> href="<?php $this->text('stylepath') ?>/common/commonPrint.css?<?php echo $GLOBALS['wgStyleVersion'] ?>" />
+        <link rel="stylesheet" type="text/css" media="handheld" href="<?php $this->text('stylepath') ?>/<?php $this->text('stylename') ?>/handheld.css?<?php echo $GLOBALS['wgStyleVersion'] ?>" />
+        <?php print Skin::makeGlobalVariablesScript($this->data); ?>
+        <script type="<?php $this->text('jsmimetype') ?>" src="<?php $this->text('stylepath') ?>/common/wikibits.js?<?php echo $GLOBALS['wgStyleVersion'] ?>"><!-- wikibits js --></script>
+    <?php    if($this->data['jsvarurl']) { ?>
+            <script type="<?php $this->text('jsmimetype') ?>" src="<?php $this->text('jsvarurl') ?>"><!-- site js --></script>
+    <?php    } ?>
+    <?php    if($this->data['pagecss']) { ?>
+            <style type="text/css"><?php $this->html('pagecss') ?></style>
+    <?php    }
+            if($this->data['usercss']) { ?>
+            <style type="text/css"><?php $this->html('usercss') ?></style>
+    <?php    }
+            if($this->data['userjs']) { ?>
+            <script type="<?php $this->text('jsmimetype') ?>" src="<?php $this->text('userjs' ) ?>"></script>
+    <?php    }
+            if($this->data['userjsprev']) { ?>
+            <script type="<?php $this->text('jsmimetype') ?>"><?php $this->html('userjsprev') ?></script>
+    <?php    }
+            if($this->data['trackbackhtml']) print $this->data['trackbackhtml']; ?>
+            <!-- Head Scripts -->
+            <?php $this->html('headscripts') ?>
     </head>
     <body <?php if($this->data['body_ondblclick']) { ?>ondblclick="<?php $this->text('body_ondblclick') ?>"<?php } ?>
     <?php if($this->data['body_onload']) { ?>onload="<?php $this->text('body_onload') ?>"<?php } ?>
     class="mediawiki <?php $this->text('nsclass') ?> <?php $this->text('dir') ?> <?php $this->text('pageclass') ?>">
-    <div style="float: right;">
-        <!-- search /-->
-        <div id="searchBody">
-        <form action="<?php $this->text('searchaction') ?>" id="searchform"><div>
-            <input id="searchInput" name="search" type="text"<?php echo $skin->tooltipAndAccesskeyAttribs('search');
-                if( isset( $this->data['search'] ) ) {
-                    ?> value="<?php $this->text('search') ?>"<?php } ?> />
-            <input type='submit' name="go" class="searchButton" id="searchGoButton" value="<?php $this->msg('searcharticle') ?>"<?php echo $skin->tooltipAndAccesskeyAttribs( 'search-go' ); ?> />&nbsp;
-            <input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="<?php $this->msg('searchbutton') ?>"<?php echo $skin->tooltipAndAccesskeyAttribs( 'search-fulltext' ); ?> />
-        </div></form>
-        </div>
-        <!-- user toolbar /-->
-        <p>
-            <?php
-            foreach($this->data['personal_urls'] as $key => $item) { ?>
-                <a href="<?php
-                echo htmlspecialchars($item['href']) ?>"<?php echo $skin->tooltipAndAccesskeyAttribs('pt-'.$key) ?><?php
-                if(!empty($item['class'])) { ?> class="<?php
-                echo htmlspecialchars($item['class']) ?>"<?php } ?>><?php
-                echo htmlspecialchars($item['text']) ?></a><?php
-            }
+    <?php
+        if ($wgUser->isLoggedIn()) {
             ?>
-        </p>
-    </div>
+                <div class="purple">
+                    <div id="searchBody">
+                        <form action="<?php $this->text('searchaction') ?>" id="searchform">
+                            <div>
+                                <input id="searchInput" name="search" type="text" <?php
+                                    echo $skin->tooltipAndAccesskeyAttribs('search');
+                                    if( isset( $this->data['search'] ) ) {
+                                        ?> value="<?php $this->text('search') ?>"<?php
+                                    }
+                                ?> />
+                                <input type='submit' name="go" class="searchButton" id="searchGoButton" value="<?php $this->msg('searcharticle') ?>"<?php echo $skin->tooltipAndAccesskeyAttribs( 'search-go' ); ?> />&nbsp;
+                                <input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="<?php $this->msg('searchbutton') ?>"<?php echo $skin->tooltipAndAccesskeyAttribs( 'search-fulltext' ); ?> />
+                            </div>
+                        </form>
+                    </div>
+                    <!-- user toolbar /-->
+                    <p>
+                        <?php
+                        foreach($this->data['personal_urls'] as $key => $item) { ?>
+                            <a href="<?php
+                            echo htmlspecialchars($item['href']) ?>"<?php echo $skin->tooltipAndAccesskeyAttribs('pt-'.$key) ?><?php
+                            if(!empty($item['class'])) { ?> class="<?php
+                            echo htmlspecialchars($item['class']) ?>"<?php } ?>><?php
+                            echo htmlspecialchars($item['text']) ?></a><?php
+                        }
+                        ?>
+                    </p>
+                </div>
+                <p>
+                        <?php
+                        if($this->data['notspecialpage']) { ?>
+                            <a href="<?php
+                                echo htmlspecialchars($this->data['nav_urls']['whatlinkshere']['href'])
+                                ?>"<?php echo $skin->tooltipAndAccesskeyAttribs('t-whatlinkshere') ?>><?php $this->msg('whatlinkshere') ?></a>
+                        <?php
+                            if( $this->data['nav_urls']['recentchangeslinked'] ) { ?>
+                            <a href="<?php
+                                echo htmlspecialchars($this->data['nav_urls']['recentchangeslinked']['href'])
+                                ?>"<?php echo $skin->tooltipAndAccesskeyAttribs('t-recentchangeslinked') ?>><?php $this->msg('recentchangeslinked') ?></a>
+                        <?php    }
+                        }
+                        if(isset($this->data['nav_urls']['trackbacklink'])) { ?>
+                            <a href="<?php
+                                echo htmlspecialchars($this->data['nav_urls']['trackbacklink']['href'])
+                                ?>"<?php echo $skin->tooltipAndAccesskeyAttribs('t-trackbacklink') ?>><?php $this->msg('trackbacklink') ?></a>
+                        <?php }
+                        if($this->data['feeds']) { ?>
+                            <?php foreach($this->data['feeds'] as $key => $feed) {
+                            ?><a href="<?php
+                                    echo htmlspecialchars($feed['href']) ?>"<?php echo $skin->tooltipAndAccesskeyAttribs('feed-'.$key) ?>><?php echo htmlspecialchars($feed['text'])?></a>&nbsp;</span>
+                                    <?php } ?><?php
+                        }
+                
+                        foreach( array('contributions', 'blockip', 'emailuser', 'upload', 'specialpages') as $special ) {
+                
+                            if($this->data['nav_urls'][$special]) {
+                                ?><a href="<?php echo htmlspecialchars($this->data['nav_urls'][$special]['href'])
+                                ?>"<?php echo $skin->tooltipAndAccesskeyAttribs('t-'.$special) ?>><?php $this->msg($special) ?></a>
+                <?php        }
+                        }
+                
+                        if(!empty($this->data['nav_urls']['print']['href'])) { ?>
+                                <a href="<?php echo htmlspecialchars($this->data['nav_urls']['print']['href'])
+                                ?>"<?php echo $skin->tooltipAndAccesskeyAttribs('t-print') ?>><?php $this->msg('printableversion') ?></a><?php
+                        }
+                
+                        if(!empty($this->data['nav_urls']['permalink']['href'])) { ?>
+                                <a href="<?php echo htmlspecialchars($this->data['nav_urls']['permalink']['href'])
+                                ?>"<?php echo $skin->tooltipAndAccesskeyAttribs('t-permalink') ?>><?php $this->msg('permalink') ?></a><?php
+                        } elseif ($this->data['nav_urls']['permalink']['href'] === '') { ?>
+                                <?php $this->msg('permalink');
+                        }
+                
+                        wfRunHooks( 'TrialSkinTemplateToolboxEnd', array( &$this ) );
+                ?>
+                    </p>
+                <!-- page toolbar /-->
+                <p class="clear">
+                    <?php
+                        foreach($this->data['content_actions'] as $key => $tab) {
+                            echo($this->makeLink($key, $tab, array('link-class' => 'button'))." ");
+                            
+                        }
+                    ?>
+                </p>
+            <?php
+        }
+    ?>
     <a href="<?php echo htmlspecialchars($this->data['nav_urls']['mainpage']['href'])?>"><img class="ava" src="<?php $this->text('logopath') ?>" /></a>
     <h1><a href="http://fenhl.net/" title="main page">Fenhl</a><?php if ($this->data['title'] != 'User:Fenhl') {
         echo(' — '); $this->data['displaytitle']!=""?$this->html('title'):$this->text('title');
     } ?></h1>
-    <!-- toolbox /-->
-    <p>
-        <?php
-        if($this->data['notspecialpage']) { ?>
-            <a href="<?php
-                echo htmlspecialchars($this->data['nav_urls']['whatlinkshere']['href'])
-                ?>"<?php echo $skin->tooltipAndAccesskeyAttribs('t-whatlinkshere') ?>><?php $this->msg('whatlinkshere') ?></a>
-        <?php
-            if( $this->data['nav_urls']['recentchangeslinked'] ) { ?>
-            <a href="<?php
-                echo htmlspecialchars($this->data['nav_urls']['recentchangeslinked']['href'])
-                ?>"<?php echo $skin->tooltipAndAccesskeyAttribs('t-recentchangeslinked') ?>><?php $this->msg('recentchangeslinked') ?></a>
-        <?php    }
-        }
-        if(isset($this->data['nav_urls']['trackbacklink'])) { ?>
-            <a href="<?php
-                echo htmlspecialchars($this->data['nav_urls']['trackbacklink']['href'])
-                ?>"<?php echo $skin->tooltipAndAccesskeyAttribs('t-trackbacklink') ?>><?php $this->msg('trackbacklink') ?></a>
-        <?php }
-        if($this->data['feeds']) { ?>
-            <?php foreach($this->data['feeds'] as $key => $feed) {
-            ?><a href="<?php
-                    echo htmlspecialchars($feed['href']) ?>"<?php echo $skin->tooltipAndAccesskeyAttribs('feed-'.$key) ?>><?php echo htmlspecialchars($feed['text'])?></a>&nbsp;</span>
-                    <?php } ?><?php
-        }
- 
-        foreach( array('contributions', 'blockip', 'emailuser', 'upload', 'specialpages') as $special ) {
- 
-            if($this->data['nav_urls'][$special]) {
-                ?><a href="<?php echo htmlspecialchars($this->data['nav_urls'][$special]['href'])
-                ?>"<?php echo $skin->tooltipAndAccesskeyAttribs('t-'.$special) ?>><?php $this->msg($special) ?></a>
-<?php        }
-        }
- 
-        if(!empty($this->data['nav_urls']['print']['href'])) { ?>
-                <a href="<?php echo htmlspecialchars($this->data['nav_urls']['print']['href'])
-                ?>"<?php echo $skin->tooltipAndAccesskeyAttribs('t-print') ?>><?php $this->msg('printableversion') ?></a><?php
-        }
- 
-        if(!empty($this->data['nav_urls']['permalink']['href'])) { ?>
-                <a href="<?php echo htmlspecialchars($this->data['nav_urls']['permalink']['href'])
-                ?>"<?php echo $skin->tooltipAndAccesskeyAttribs('t-permalink') ?>><?php $this->msg('permalink') ?></a><?php
-        } elseif ($this->data['nav_urls']['permalink']['href'] === '') { ?>
-                <?php $this->msg('permalink');
-        }
- 
-        wfRunHooks( 'TrialSkinTemplateToolboxEnd', array( &$this ) );
-?>
-    </p>
     <?php if($this->data['sitenotice']) { ?><div class="siteNotice clear"><?php $this->html('sitenotice') ?></div><?php } ?>
     <?php if($this->data['newtalk']) { ?><div class="usermessage clear"><?php $this->html('newtalk') ?></div><?php } ?>
     <!-- language links /-->
@@ -210,15 +228,6 @@ class SokisTemplate extends BaseTemplate {
     <?php if($this->data['subtitle']) { ?><p id="contentSub" class="clear"><?php $this->html('subtitle') ?></p><?php } ?>
     <!-- undelete notice /-->
     <?php if($this->data['undelete']) { ?><p id="contentSub2" class="clear"><?php $this->html('undelete') ?></p><?php } ?>
-    <!-- page toolbar /-->
-    <p class="clear">
-        <?php
-        foreach($this->data['content_actions'] as $key => $tab) {
-            echo($this->makeLink($key, $tab, array('link-class' => 'button'))." ");
-            
-        }
-        ?>
-    </p>
     <!-- main content /-->
     <?php $this->html('bodytext') ?>
     <!-- footer /-->
@@ -226,10 +235,10 @@ class SokisTemplate extends BaseTemplate {
         <div style="position: absolute; right: 2px; bottom: 2px;">
         <?php
             if($this->data['poweredbyico']) {
-            ?><span id="f-poweredbyico" style="margin-right: 2px;"><?php $this->html('poweredbyico') ?></span><?php
+                ?><span id="f-poweredbyico" style="margin-right: 2px;"><?php $this->html('poweredbyico') ?></span><?php
             }
             if($this->data['copyrightico']) {
-            ?><span id="f-copyrightico" style="margin-right: 2px;"><?php $this->html('copyrightico') ?></span><?php
+                ?><span id="f-copyrightico" style="margin-right: 2px;"><?php $this->html('copyrightico') ?></span><?php
             }
         ?>
         </div>
@@ -252,14 +261,8 @@ class SokisTemplate extends BaseTemplate {
         if($this->data['catlinks']) {
             $this->html('catlinks');
         }
-        $footerlinks = array('privacy', 'about');
-        foreach($footerlinks as $aLink) {
-            if( isset( $this->data[$aLink] ) && $this->data[$aLink] ) {
-            $this->html($aLink);
-            }
-        }
         ?>
-        <a href="http://w.fenhl.net/GefolgeWiki:Impressum">disclaimer</a>
+        <a href="http://fenhl.net/disclaimer">disclaimer</a>
     </footer>
 
 <!-- scripts and debugging information -->
