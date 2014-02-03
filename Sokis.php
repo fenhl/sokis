@@ -87,7 +87,9 @@ class SokisTemplate extends BaseTemplate {
         <meta http-equiv="expires" content="0" />
         <link rel="openid.server" href="http://static.fenhl.net/id/" />
         <link rel="openid2.provider" href="http://static.fenhl.net/id/" />
+        <link rel="shortcut icon" href="http://static.fenhl.net/ava/pineapple/p-sq-16.png" />
         <link rel="stylesheet" href="http://static.fenhl.net/fenhl.css" type="text/css" media="screen" charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="http://static.fenhl.net/font/wanya/stylesheet.css" media="screen" charset="utf-8" />
         <style type="text/css" media="screen,projection">/*<![CDATA[*/
             @import "<?php $this->text('stylepath') ?>/<?php $this->text('stylename') ?>/main.css?<?php echo $GLOBALS['wgStyleVersion'] ?>";
             @import "<?php $this->text('stylepath') ?>/<?php $this->text('stylename') ?>/contents.css?<?php echo $GLOBALS['wgStyleVersion'] ?>";
